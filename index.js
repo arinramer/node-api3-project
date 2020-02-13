@@ -1,4 +1,6 @@
 // code away!
+require('dotenv').config();
+
 const express = require("express");
 
 const postRouter = require("./posts/postRouter");
@@ -22,6 +24,8 @@ function logger(req, res, next) {
 	next();
 }
 
-server.listen(5000, () => {
-	console.log("\n* Server Running on http://localhost:5000 *\n");
+const port = process.env.PORT;
+
+server.listen(port, () => {
+	console.log(`\n* Server Running on http://localhost:${port} *\n`);
 });
